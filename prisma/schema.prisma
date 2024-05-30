@@ -1,0 +1,27 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+model Teacher {
+  id      Int       @id @default(autoincrement())
+  name    String
+  courses Course[]  @relation("CourseTeachers")
+}
+
+model Student {
+  id      Int       @id @default(autoincrement())
+  name    String
+  courses Course[]  @relation("CourseStudents")
+}
+
+model Course {
+  id       Int       @id @default(autoincrement())
+  title    String
+  teachers Teacher[] @relation("CourseTeachers")
+  students Student[] @relation("CourseStudents")
+}
