@@ -82,7 +82,7 @@ export default function AssignForm({ courseId, onAssign }) {
   return (
     <div className="max-w-md mx-auto bg-white shadow-md rounded-md p-6">
       <h2 className="text-xl font-semibold mb-4">
-        Assign Teacher, Student to Course
+        Edit Form For Assign Teacher, Student to Course
       </h2>
       <form onSubmit={handleAssign}>
         <label>

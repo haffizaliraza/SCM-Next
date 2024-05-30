@@ -26,8 +26,6 @@ export default async function handler(req, res) {
           id: parseInt(id),
         },
         include: {
-          // Include any related entities you want to fetch (e.g., teachers, students)
-          // Modify this according to your data model
           teachers: true,
           students: true,
         },

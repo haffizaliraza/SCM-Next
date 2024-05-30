@@ -56,8 +56,8 @@ export default function CourseDetailPage() {
           <h2 className="text-xl font-semibold">{course.title}</h2>
           <p className="mb-2">Course ID: {course.id}</p>
           <p className="mb-2">
-            Teacher ID:{" "}
-            {course.teachers.length > 0 ? course.teachers[0].id : "N/A"}
+            Teacher Name:{" "}
+            {course.teachers.length > 0 ? course.teachers[0].name : "N/A"}
           </p>
           <p className="mb-2">List of Students:</p>
           <ul className="list-disc ml-6">
@@ -65,6 +65,9 @@ export default function CourseDetailPage() {
               <li key={student.id}>{student.name}</li>
             ))}
           </ul>
+          <br />
+          <br />
+          <br />
           <AssignForm courseId={course.id} onAssign={handleAssignmentSuccess} />
         </div>
       ) : (
