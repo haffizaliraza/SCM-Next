@@ -1,13 +1,24 @@
 import { useEffect } from "react";
 import "tailwindcss/tailwind.css";
 
-export default function TeacherList({ teachers, onEdit, fetchTeachers }) {
+export default function TeacherList({
+  teachers,
+  onEdit,
+  onDelete,
+  fetchTeachers,
+}) {
   useEffect(() => {
     fetchTeachers();
   }, []);
 
   const handleEdit = (teacher) => {
     onEdit(teacher);
+  };
+
+  const handleDelete = (teacher) => {
+    // Implement the logic to delete the teacher
+    // Call the onDelete function with the teacher as an argument
+    onDelete(teacher);
   };
 
   return (

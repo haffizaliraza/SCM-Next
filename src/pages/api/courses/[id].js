@@ -5,13 +5,25 @@ import { PrismaClient } from "@prisma/client";
 const prisma = new PrismaClient();
 
 export default async function handler(req, res) {
-  const courseId = req.query.id;
+  const { id } = req.query;
 
-  if (req.method === "GET") {
+  if (req.method === "PUT") {
+    const { title } = req.body;
+    const course = await prisma.course.update({
+      where: { id: parseInt(id) },
+      data: { title },
+    });
+    res.status(200).json(course);
+  } else if (req.method === "DELETE") {
+    await prisma.course.delete({
+      where: { id: parseInt(id) },
+    });
+    res.status(204).end();
+  } else if (req.method === "GET") {
     try {
       const course = await prisma.course.findUnique({
         where: {
-          id: parseInt(courseId),
+          id: parseInt(id),
         },
         include: {
           // Include any related entities you want to fetch (e.g., teachers, students)

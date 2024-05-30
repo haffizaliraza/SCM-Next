@@ -1,8 +1,18 @@
 import { useState } from "react";
 import "tailwindcss/tailwind.css";
 
-export default function TeacherForm({ fetchTeachers }) {
+export default function TeacherForm({ onCreateTeacher }) {
   const [name, setName] = useState("");
+  const [teachers, setTeachers] = useState([]);
+
+  const fetchTeachers = async () => {
+    // Your fetching logic to get teachers from the API
+    // For example:
+    const response = await fetch("/api/teachers");
+    const data = await response.json();
+    setTeachers(data);
+    onCreateTeacher(data);
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();

@@ -3,37 +3,40 @@ import "tailwindcss/tailwind.css";
 
 export default function StudentForm({ onCreateStudent }) {
   const [name, setName] = useState("");
+  const [students, setStudents] = useState([]);
+
+  const fetchStudents = async () => {
+    // Your fetching logic to get students from the API
+    // For example:
+    const response = await fetch("/api/students");
+    const data = await response.json();
+    setStudents(data);
+    onCreateStudent(data);
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    try {
-      const res = await fetch("/api/students", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ name }),
-      });
-      if (res.ok) {
-        const data = await res.json();
-        onCreateStudent(data);
-        setName("");
-      } else {
-        console.error("Failed to create student");
-      }
-    } catch (error) {
-      console.error("Failed to create student:", error);
+    const res = await fetch("/api/students", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ name }),
+    });
+    if (res.ok) {
+      setName("");
+      fetchStudents();
     }
   };
 
   return (
-    <form onSubmit={handleSubmit} className="max-w-md mx-auto">
+    <form onSubmit={handleSubmit} className="mb-6">
       <input
         type="text"
         value={name}
         onChange={(e) => setName(e.target.value)}
         placeholder="Student Name"
-        className="block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:border-indigo-500 focus:ring focus:ring-indigo-200"
+        className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
       />
       <button
         type="submit"

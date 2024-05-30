@@ -1,7 +1,6 @@
 // pages/dashboard.js
 
 import { useState, useEffect } from "react";
-import Link from "next/link";
 import "tailwindcss/tailwind.css";
 
 export default function Dashboard() {
