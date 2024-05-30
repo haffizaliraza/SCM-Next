@@ -37,35 +37,35 @@ export default function Dashboard() {
 
   return (
     <div>
-      <div class="container mx-auto mt-10">
-        <h1 class="text-3xl text-center font-bold mb-8">Dashboard</h1>
+      <div className="container mx-auto mt-10">
+        <h1 className="text-3xl text-center font-bold mb-8">Dashboard</h1>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <a
             href="/students"
-            class="bg-blue-500 hover:bg-blue-600 text-white p-6 rounded-lg shadow-md flex flex-col items-center justify-center transition duration-300"
+            className="bg-blue-500 hover:bg-blue-600 text-white p-6 rounded-lg shadow-md flex flex-col items-center justify-center transition duration-300"
           >
-            <h2 class="text-xl font-semibold mb-2">Students</h2>
+            <h2 className="text-xl font-semibold mb-2">Students</h2>
             <p>Count: {studentCount}</p>
-            <p class="text-lg">Click to view students</p>
+            <p className="text-lg">Click to view students</p>
           </a>
 
           <a
             href="/teachers"
-            class="bg-green-500 hover:bg-green-600 text-white p-6 rounded-lg shadow-md flex flex-col items-center justify-center transition duration-300"
+            className="bg-green-500 hover:bg-green-600 text-white p-6 rounded-lg shadow-md flex flex-col items-center justify-center transition duration-300"
           >
-            <h2 class="text-xl font-semibold mb-2">Teachers</h2>
+            <h2 className="text-xl font-semibold mb-2">Teachers</h2>
             <p>Count: {teacherCount}</p>
-            <p class="text-lg">Click to view teachers</p>
+            <p className="text-lg">Click to view teachers</p>
           </a>
 
           <a
             href="/courses"
-            class="bg-yellow-500 hover:bg-yellow-600 text-white p-6 rounded-lg shadow-md flex flex-col items-center justify-center transition duration-300"
+            className="bg-yellow-500 hover:bg-yellow-600 text-white p-6 rounded-lg shadow-md flex flex-col items-center justify-center transition duration-300"
           >
-            <h2 class="text-xl font-semibold mb-2">Courses</h2>
+            <h2 className="text-xl font-semibold mb-2">Courses</h2>
             <p>Count: {courseCount}</p>
-            <p class="text-lg">Click to view courses</p>
+            <p className="text-lg">Click to view courses</p>
           </a>
         </div>
       </div>
