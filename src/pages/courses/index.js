@@ -28,10 +28,19 @@ export default function Courses() {
   };
 
   return (
-    <div>
-      <h1>Courses</h1>
-      <CourseForm onCreateCourse={handleCreateCourse} />
-      <CourseList courses={courses} />
+    <div className="max-w-lg mx-auto mt-8 p-4 bg-white shadow-md rounded-md">
+      <h1 className="text-2xl font-bold mb-4">Courses</h1>
+      <div className="mb-4">
+        <CourseForm onCreateCourse={handleCreateCourse} />
+      </div>
+      <div>
+        <CourseList courses={courses} />
+      </div>
+      <div className="mt-4">
+        <a href="/dashboard" className="text-indigo-600 hover:underline">
+          Back
+        </a>
+      </div>
     </div>
   );
 }

@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import "tailwindcss/tailwind.css";
 
 export default function EditTeacherForm({ teacher, onSave, onCancel }) {
   const [name, setName] = useState("");

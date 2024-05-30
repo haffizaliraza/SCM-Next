@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import StudentList from "../components/StudentList";
 import StudentForm from "../components/StudentForm";
+import "tailwindcss/tailwind.css";
 
 export default function Students() {
   const [students, setStudents] = useState([]);
@@ -28,10 +29,19 @@ export default function Students() {
   };
 
   return (
-    <div>
-      <h1>Students</h1>
-      <StudentForm onCreateStudent={handleCreateStudent} />
-      <StudentList students={students} />
+    <div className="max-w-lg mx-auto mt-8 p-4 bg-white shadow-md rounded-md">
+      <h1 className="text-2xl font-bold mb-4">Students</h1>
+      <div className="mb-4">
+        <StudentForm onCreateStudent={handleCreateStudent} />
+      </div>
+      <div>
+        <StudentList students={students} />
+      </div>
+      <div className="mt-4">
+        <a href="/dashboard" className="text-indigo-600 hover:underline">
+          Back
+        </a>
+      </div>
     </div>
   );
 }

@@ -4,7 +4,9 @@ export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
       <div class="container mx-auto mt-10">
-        <h1 class="text-3xl text-center font-bold mb-8">Dashboard</h1>
+        <h1 class="text-3xl text-center font-bold mb-8">
+          Welcome to Student Course Managment System
+        </h1>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
           <a

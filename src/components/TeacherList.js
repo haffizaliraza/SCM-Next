@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import "tailwindcss/tailwind.css";
 
 export default function TeacherList({ teachers, onEdit, fetchTeachers }) {
   useEffect(() => {
@@ -12,22 +13,49 @@ export default function TeacherList({ teachers, onEdit, fetchTeachers }) {
   return (
     <div>
       <h2 className="text-2xl mb-4">Teachers</h2>
-      <ul>
-        {teachers.map((teacher) => (
-          <li
-            key={teacher.id}
-            className="mb-2 flex justify-between items-center"
-          >
-            {teacher.name}
-            <button
-              onClick={() => handleEdit(teacher)}
-              className="bg-yellow-500 text-white px-2 py-1 ml-4"
+      <table className="min-w-full divide-y divide-gray-200">
+        <thead className="bg-gray-50">
+          <tr>
+            <th
+              scope="col"
+              className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
             >
-              Edit
-            </button>
-          </li>
-        ))}
-      </ul>
+              Name
+            </th>
+            <th
+              scope="col"
+              className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"
+            >
+              Actions
+            </th>
+          </tr>
+        </thead>
+        <tbody className="bg-white divide-y divide-gray-200">
+          {teachers.map((teacher) => (
+            <tr key={teacher.id}>
+              <td className="px-6 py-4 whitespace-nowrap">
+                <div className="text-sm font-medium text-gray-900">
+                  {teacher.name}
+                </div>
+              </td>
+              <td className="px-6 py-4 whitespace-nowrap text-sm font-medium flex space-x-2">
+                <button
+                  className="text-indigo-600 hover:text-indigo-900"
+                  onClick={() => handleEdit(teacher)}
+                >
+                  Edit
+                </button>
+                <button
+                  className="text-red-600 hover:text-red-900"
+                  onClick={() => handleDelete(teacher)}
+                >
+                  Delete
+                </button>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
     </div>
   );
 }

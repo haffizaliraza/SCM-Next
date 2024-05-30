@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import TeacherForm from "../components/TeacherForm";
 import TeacherList from "../components/TeacherList";
 import EditTeacherForm from "../components/EditTeacherForm";
+import "tailwindcss/tailwind.css";
 
 export default function Teachers() {
   const [teachers, setTeachers] = useState([]);
@@ -50,6 +51,11 @@ export default function Teachers() {
           onEdit={handleEdit}
           fetchTeachers={fetchTeachers}
         />
+        <div className="mt-4">
+          <a href="/dashboard" className="text-indigo-600 hover:underline">
+            Back
+          </a>
+        </div>
       </div>
     </div>
   );

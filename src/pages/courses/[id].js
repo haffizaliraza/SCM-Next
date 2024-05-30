@@ -49,18 +49,18 @@ export default function CourseDetailPage() {
   }
 
   return (
-    <div>
-      <h1>Course Detail</h1>
+    <div className="max-w-md mx-auto bg-white shadow-md rounded-md p-6">
+      <h1 className="text-2xl mb-4">Course Detail</h1>
       {course ? (
         <div>
-          <h2>{course.title}</h2>
-          <p>Course ID: {course.id}</p>
-          <p>
+          <h2 className="text-xl font-semibold">{course.title}</h2>
+          <p className="mb-2">Course ID: {course.id}</p>
+          <p className="mb-2">
             Teacher ID:{" "}
             {course.teachers.length > 0 ? course.teachers[0].id : "N/A"}
           </p>
-          <p>List of Students:</p>
-          <ul>
+          <p className="mb-2">List of Students:</p>
+          <ul className="list-disc ml-6">
             {course.students.map((student) => (
               <li key={student.id}>{student.name}</li>
             ))}
@@ -70,6 +70,11 @@ export default function CourseDetailPage() {
       ) : (
         <div>Course not found</div>
       )}
+      <div className="mt-4">
+        <a href="/dashboard" className="text-indigo-600 hover:underline">
+          Back
+        </a>
+      </div>
     </div>
   );
 }
